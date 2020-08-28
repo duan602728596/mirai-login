@@ -1,0 +1,16 @@
+{
+  "name": "@mirai-login/main",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "npm run clean && babel src --out-dir lib --watch",
+    "start:no-watch": "npm run clean && babel src --out-dir lib",
+    "build": "npm run clean && cross-env NODE_ENV=production gulp",
+    "clean": "rimraf ./lib"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-terser": "^1.3.2"
+  }
+}

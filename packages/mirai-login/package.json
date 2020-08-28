@@ -1,0 +1,43 @@
+{
+  "name": "@mirai-login/mirai-login",
+  "version": "0.0.0",
+  "main": "../main/lib/main.js",
+  "scripts": {
+    "runel": "cross-env NODE_ENV=development electron ./",
+    "dll": "cross-env NODE_ENV=development milktea dll",
+    "start": "npm run clean && cross-env NODE_ENV=development milktea start --server",
+    "build": "npm run clean && cross-env NODE_ENV=production milktea build",
+    "test": "jest test",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "@reduxjs/toolkit": "^1.4.0",
+    "antd": "^4.5.4",
+    "classnames": "^2.2.6",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
+    "got": "^10.7.0",
+    "indexeddb-tools": "^3.0.0",
+    "indexeddb-tools-redux": "^3.0.0",
+    "lodash": "^4.17.20",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.0-rc.0",
+    "react-dom": "^17.0.0-rc.0",
+    "react-redux": "^7.2.1",
+    "reselect": "^4.0.0"
+  },
+  "devDependencies": {
+    "@sweet-milktea/milktea": "^0.16.3",
+    "@sweet-milktea/milktea-cli": "^0.16.3",
+    "@sweet-milktea/server": "^0.16.1",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24"
+  },
+  "mirai": {
+    "core": "1.2.2",
+    "core-qqandroid": "1.2.2",
+    "console": "1.0-M3-all",
+    "console-pure": "1.0-M3-all"
+  }
+}
