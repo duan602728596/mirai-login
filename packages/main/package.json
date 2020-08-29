@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "npm run clean && babel src --out-dir lib --watch",
-    "start:no-watch": "npm run clean && babel src --out-dir lib",
+    "dev": "npm run clean && babel src --out-dir lib",
     "build": "npm run clean && cross-env NODE_ENV=production gulp",
     "clean": "rimraf ./lib"
   },

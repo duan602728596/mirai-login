@@ -6,10 +6,12 @@ import Download from './Download';
 /* 首页 */
 function Index(props) {
   return (
-    <Space className={ style.content }>
-      <Login />
-      <Download />
-    </Space>
+    <div className={ style.content }>
+      <Space className={ style.tools }>
+        <Login />
+        <Download />
+      </Space>
+    </div>
   );
 }
 

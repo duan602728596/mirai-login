@@ -37,6 +37,7 @@ export default function(info) {
       index: [path.join(__dirname, 'src/index.js')]
     },
     externals: nodeExternals([
+      'child_process',
       'fs',
       'os',
       'path',

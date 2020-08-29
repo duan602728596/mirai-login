@@ -1,0 +1,531 @@
+2020-08-29 09:48:56 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:48:56 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:48:56 V/Net 519951426: Recv: UnsafeLogin(url=https://ti.qq.com/safe/verify?_wv=2&_wwv=128&uin=519951426&sig=%2BEbgVk1%2Fa%2BEaXOrsNF%2F7Y3nlcOxkxEMDcllkqyXgkLsL4%2F7ZITTtjRvakjTxCyvt30co3lFTAXkEQ1v1FuF0mcuOaAuy%2B67jCgSB5zmXBuzGRnznoIWsu61Meq5pk3N4)
+2020-08-29 09:49:20 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:49:21 V/Net 519951426: Recv: UnsafeLogin(url=https://ti.qq.com/safe/verify?_wv=2&_wwv=128&uin=519951426&sig=UFz6fnpzC%2FScUho3WMe%2FTB8rbUEvTrrpJz6wRJ58jrjpK%2BRVkE1b%2Bh7c%2B86mu2U55G4EmoZ3kNcHRZ7TZLe%2BRmWEBlhVNVtp133ir0NvSyDS4ljlIWg6HSxL%2BtcFxmc7)
+2020-08-29 09:49:27 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:49:27 V/Net 519951426: Recv: UnsafeLogin(url=https://ti.qq.com/safe/verify?_wv=2&_wwv=128&uin=519951426&sig=JXYbyruKpU3HMF4dmCfL3DEeHpJt%2FsdkC8Zi3B0V%2BcswCb9uCFsNoJ50VFDeB%2FANZQ2wc9TsWG6sCdVn3fbbrbvB9oMQuSq6pw6LftQs9thWbiCDzqyA7gWDez%2FtLgs5)
+2020-08-29 09:50:53 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:50:53 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:50:53 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:50:53 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:50:53 I/Net 519951426: Login successful
+2020-08-29 09:50:58 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:50:58 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:50:58 I/Net 519951426: 开始加载好友信息
+2020-08-29 09:50:58 I/Net 519951426: 开始加载群组列表与群成员列表
+2020-08-29 09:50:58 V/Net 519951426: Send: friendlist.getFriendGroupList
+2020-08-29 09:50:58 V/Net 519951426: Send: friendlist.GetTroopListReqV2
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:50:59 V/Net 519951426: 正在加载好友列表 99/99
+2020-08-29 09:50:59 I/Net 519951426: 好友列表加载完成, 共 99个
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:50:59 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:50:59 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:00 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:00 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:00 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:00 I/Net 519951426: 群组列表与群成员加载完成, 共 8个
+2020-08-29 09:51:00 I/Net 519951426: Awaiting ConfigPushSvc.PushReq
+2020-08-29 09:51:00 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:00 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:00 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:00 D/Net 519951426: unknown PbGetMsg type 528, data=08 EB 01 12 31 0A 22 08 C2 A8 F7 F7 01 10 C2 A8 F7 F7 01 18 E1 1C 20 00 28 00 30 00 38 00 40 00 48 00 50 00 58 90 04 60 76 10 E9 07 18 D5 EC 8B 80 02 20 00 2A 00
+2020-08-29 09:51:00 D/Net 519951426: unknown PbGetMsg type 734, data=00 00 00 0C 00 00 00 36 08 02 1A 08 08 01 40 97 D1 A4 FA 05 0A 23 08 98 C0 8A FA 80 80 80 84 13 10 C2 A8 F7 F7 01 18 84 B5 93 9F 04 20 0F B0 01 E8 07 C0 01 97 D1 A4 FA 05 32 0F 08 01 10 E9 07 18 02 20 01 28 A6 EC BB A5 0B
+2020-08-29 09:51:00 D/Net 519951426: unknown PbGetMsg type 734, data=00 00 00 0C 00 00 00 22 08 02 1A 08 08 01 40 92 E0 A4 FA 05 0A 1C 08 98 C0 8A FA 80 80 80 84 13 10 C2 A8 F7 F7 01 18 96 DE 89 DD 01 20 0E B0 01 E8 07 2A 02 08 01
+2020-08-29 09:51:00 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:00 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:00 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:00 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:00 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:00 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:00 I/Net 519951426: Login successful
+2020-08-29 09:51:00 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:01 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:01 I/Net 519951426: 开始加载好友信息
+2020-08-29 09:51:01 I/Net 519951426: 开始加载群组列表与群成员列表
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.getFriendGroupList
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopListReqV2
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:01 V/Net 519951426: 正在加载好友列表 99/99
+2020-08-29 09:51:01 I/Net 519951426: 好友列表加载完成, 共 99个
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:01 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:01 I/Net 519951426: 群组列表与群成员加载完成, 共 8个
+2020-08-29 09:51:01 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:01 I/Net 519951426: Awaiting ConfigPushSvc.PushReq
+2020-08-29 09:51:01 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:01 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:01 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:01 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:01 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:01 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:01 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:02 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:02 I/Net 519951426: Login successful
+2020-08-29 09:51:02 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:02 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:02 I/Net 519951426: 开始加载好友信息
+2020-08-29 09:51:02 I/Net 519951426: 开始加载群组列表与群成员列表
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.getFriendGroupList
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopListReqV2
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:02 V/Net 519951426: 正在加载好友列表 99/99
+2020-08-29 09:51:02 I/Net 519951426: 好友列表加载完成, 共 99个
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:02 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:02 I/Net 519951426: 群组列表与群成员加载完成, 共 8个
+2020-08-29 09:51:02 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:02 I/Net 519951426: Awaiting ConfigPushSvc.PushReq
+2020-08-29 09:51:02 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:02 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:02 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:02 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:02 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:03 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:03 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:03 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:03 I/Net 519951426: Login successful
+2020-08-29 09:51:03 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:03 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:03 I/Net 519951426: 开始加载好友信息
+2020-08-29 09:51:03 I/Net 519951426: 开始加载群组列表与群成员列表
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.getFriendGroupList
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopListReqV2
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:03 V/Net 519951426: 正在加载好友列表 99/99
+2020-08-29 09:51:03 I/Net 519951426: 好友列表加载完成, 共 99个
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:03 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:03 I/Net 519951426: 群组列表与群成员加载完成, 共 8个
+2020-08-29 09:51:03 I/Net 519951426: Awaiting ConfigPushSvc.PushReq
+2020-08-29 09:51:03 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:03 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:03 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:03 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:03 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:03 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:04 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:04 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:04 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:04 I/Net 519951426: Login successful
+2020-08-29 09:51:06 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:06 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:06 I/Net 519951426: ConfigPushSvc.PushReq: Success
+2020-08-29 09:51:06 I/Net 519951426: ConfigPushSvc.PushReq: Success
+2020-08-29 09:51:06 I/Net 519951426: ConfigPushSvc.PushReq: Success
+2020-08-29 09:51:06 I/Net 519951426: ConfigPushSvc.PushReq: Success
+2020-08-29 09:51:07 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:07 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:07 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:07 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:07 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:07 I/Net 519951426: Login successful
+2020-08-29 09:51:09 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:09 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:09 I/Net 519951426: 开始加载好友信息
+2020-08-29 09:51:09 I/Net 519951426: 开始加载群组列表与群成员列表
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.getFriendGroupList
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopListReqV2
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:09 V/Net 519951426: 正在加载好友列表 99/99
+2020-08-29 09:51:09 I/Net 519951426: 好友列表加载完成, 共 99个
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:09 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:09 I/Net 519951426: 群组列表与群成员加载完成, 共 8个
+2020-08-29 09:51:09 I/Net 519951426: Awaiting ConfigPushSvc.PushReq
+2020-08-29 09:51:09 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:09 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:09 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:09 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:09 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:09 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:09 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:10 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:10 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:10 I/Net 519951426: Login successful
+2020-08-29 09:51:10 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:10 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:10 I/Net 519951426: 开始加载好友信息
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.getFriendGroupList
+2020-08-29 09:51:10 V/Net 519951426: Send: StatSvc.RspMSFForceOffline
+2020-08-29 09:51:10 I/Net 519951426: 开始加载群组列表与群成员列表
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopListReqV2
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Send: OidbSvc.0x88d_7
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetFriendGroupList.Response
+2020-08-29 09:51:10 V/Net 519951426: 正在加载好友列表 99/99
+2020-08-29 09:51:10 I/Net 519951426: 好友列表加载完成, 共 99个
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 V/Net 519951426: Send: friendlist.GetTroopMemberListReq
+2020-08-29 09:51:10 V/Net 519951426: Recv: FriendList.GetTroopMemberList.Response
+2020-08-29 09:51:10 I/Net 519951426: 群组列表与群成员加载完成, 共 8个
+2020-08-29 09:51:10 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:10 I/Net 519951426: Awaiting ConfigPushSvc.PushReq
+2020-08-29 09:51:10 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:10 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:10 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:12 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:12 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:12 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:12 I/Net 519951426: ConfigPushSvc.PushReq: Success
+2020-08-29 09:51:12 I/Net 519951426: ConfigPushSvc.PushReq: Success
+2020-08-29 09:51:12 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:12 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:12 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:12 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:12 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:12 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:12 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:12 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:12 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:12 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:12 I/Net 519951426: Login successful
+2020-08-29 09:51:12 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:12 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:12 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:12 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:12 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:12 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:12 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:12 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:12 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:12 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:12 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:12 I/Net 519951426: Login successful
+2020-08-29 09:51:13 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:13 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:13 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:13 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:13 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:13 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:13 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:13 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:13 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:13 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:13 D/Net 519951426: Received unknown commandName: ConfigPushSvc.PushDomain
+2020-08-29 09:51:13 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:13 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:15 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:15 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:15 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:15 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:15 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:15 I/Net 519951426: Login successful
+2020-08-29 09:51:15 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:15 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:15 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:15 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:15 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:15 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:18 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:18 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:18 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:18 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:18 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:18 I/Net 519951426: Login successful
+2020-08-29 09:51:18 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:18 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:23 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:23 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:23 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:23 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:23 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:23 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:23 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:23 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:23 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:23 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:24 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:24 I/Net 519951426: Login successful
+2020-08-29 09:51:24 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:24 V/Net 519951426: Send: StatSvc.RspMSFForceOffline
+2020-08-29 09:51:24 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:24 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:24 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:24 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:24 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:24 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:24 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:24 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:24 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:24 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:24 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:24 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:24 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:24 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:24 I/Net 519951426: Login successful
+2020-08-29 09:51:24 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:24 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:24 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:24 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:24 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:24 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:26 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:26 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:27 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:27 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:27 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:27 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:29 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:29 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:29 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:29 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:29 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:29 I/Net 519951426: Login successful
+2020-08-29 09:51:34 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:34 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:34 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:34 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:34 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:34 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:37 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:37 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:40 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:40 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:40 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:40 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:40 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:40 I/Net 519951426: Login successful
+2020-08-29 09:51:45 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:45 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:45 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:45 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:45 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:45 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:48 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:48 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:51:51 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:51:51 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:51 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:51:51 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:51:51 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:51:51 I/Net 519951426: Login successful
+2020-08-29 09:51:56 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:51:56 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:51:56 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:51:56 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:51:56 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:51:56 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:51:59 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:51:59 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:52:01 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:52:01 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:52:02 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:52:02 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:52:02 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:52:02 I/Net 519951426: Login successful
+2020-08-29 09:52:07 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:52:07 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:52:07 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:52:07 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:52:07 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:52:07 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:52:09 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:52:09 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:52:10 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:52:10 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:52:10 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:52:10 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:52:13 I/Net 519951426: Connected to server msfwifi.3g.qq.com:8080
+2020-08-29 09:52:13 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:52:13 V/Net 519951426: Recv: WtLogin.Login.LoginPacketResponse.DeviceLockLogin
+2020-08-29 09:52:13 V/Net 519951426: Send: wtlogin.login
+2020-08-29 09:52:13 V/Net 519951426: Recv: LoginPacketResponse.Success
+2020-08-29 09:52:13 I/Net 519951426: Login successful
+2020-08-29 09:52:18 V/Net 519951426: Send: StatSvc.register
+2020-08-29 09:52:18 V/Net 519951426: Send: StatSvc.RspMSFForceOffline
+2020-08-29 09:52:18 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:52:18 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:52:18 V/Net 519951426: Recv: Response(StatSvc.register)
+2020-08-29 09:52:18 I/Net 519951426: Syncing friend message history...
+2020-08-29 09:52:18 V/Net 519951426: Send: MessageSvc.PbGetMsg
+2020-08-29 09:52:18 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:52:18 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:52:18 V/Net 519951426: Send: MessageSvc.PbDeleteMsg
+2020-08-29 09:52:18 I/Net 519951426: Syncing friend message history: Success
+2020-08-29 09:52:21 V/Net 519951426: Recv: ConfigPushSvc.PushReq.PushReqResponse.Success
+2020-08-29 09:52:21 V/Net 519951426: Send: ConfigPushSvc.PushResp
+2020-08-29 09:52:23 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:52:23 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:52:24 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:52:24 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:53:07 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:53:07 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:53:09 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:53:09 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:53:10 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:53:10 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:53:18 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:53:18 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:53:23 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:53:23 V/Net 519951426: Recv: Heartbeat.Alive.Response
+2020-08-29 09:53:24 V/Net 519951426: Send: Heartbeat.Alive
+2020-08-29 09:53:24 V/Net 519951426: Recv: Heartbeat.Alive.Response

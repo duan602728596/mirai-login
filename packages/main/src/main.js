@@ -15,7 +15,8 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
       nodeIntegrationInWorker: true,
-      webSecurity: false
+      webSecurity: false,
+      enableRemoteModule: true
     },
     icon: isDevelopment ? undefined : path.join(__dirname, '../../titleBarIcon.png')
   });
