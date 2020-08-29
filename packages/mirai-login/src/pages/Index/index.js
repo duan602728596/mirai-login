@@ -1,14 +1,16 @@
 import { Space } from 'antd';
 import style from './index.sass';
-import Login from './Login';
+import useLogin from './Login/useLogin';
 import Download from './Download';
 
 /* 首页 */
 function Index(props) {
+  const login = useLogin();
+
   return (
     <div className={ style.content }>
       <Space className={ style.tools }>
-        <Login />
+        { login.element }
         <Download />
       </Space>
     </div>
