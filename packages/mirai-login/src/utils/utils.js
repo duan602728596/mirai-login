@@ -39,8 +39,7 @@ export const content = path.join(mirai, 'content'); // mirai
 export const java = path.join(
   _app,
   `jdk-${ platform }`,
-  platform === 'darwin' ? 'Contents/Home/bin' : 'bin',
-  'java'
+  platform === 'darwin' ? 'Contents/Home/bin/java' : 'bin/java.exe'
 ); // jdk
 
 // 文件下载地址：https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core/mirai-core-1.2.2.jar
