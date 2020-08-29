@@ -1,7 +1,9 @@
+import { ipcRenderer } from 'electron';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
 import { Space, List, Button } from 'antd';
+import { ToolFilled as IconToolFilled } from '@ant-design/icons';
 import style from './index.sass';
 import useLogin from './Login/useLogin';
 import Download from './Download';
@@ -21,6 +23,11 @@ function Index(props) {
   const { optionsList } = useSelector(state);
   const dispatch = useDispatch();
   const login = useLogin();
+
+  // 打开开发者工具
+  function handleOpenDeveloperToolsClick(event) {
+    ipcRenderer.send('developer-tools');
+  }
 
   // 登陆
   function handleLoginClick(item, event) {
@@ -75,6 +82,7 @@ function Index(props) {
       <Space className={ style.tools }>
         { login.element }
         <Download />
+        <Button type="text" icon={ <IconToolFilled /> } onClick={ handleOpenDeveloperToolsClick } />
       </Space>
       {/* 快速登陆 */}
       <div className={ style.list }>
