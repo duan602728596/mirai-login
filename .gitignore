@@ -29,3 +29,4 @@ mirai/
 packages/mirai-login/data
 packages/mirai-login/logs
 packages/mirai-login/plugins
+packages/mirai-login/device.json
