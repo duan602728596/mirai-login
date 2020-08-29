@@ -1,6 +1,7 @@
 import os from 'os';
 import path from 'path';
 import process from 'process';
+import fs from 'fs';
 import { remote } from 'electron';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -41,6 +42,12 @@ export const java = path.join(
   `jdk-${ platform }`,
   platform === 'darwin' ? 'Contents/Home/bin/java' : 'bin/java.exe'
 ); // jdk
+
+if (fs.existsSync(java)) {
+  console.log(`jdk: ${ java }`);
+} else {
+  console.warn(`jdk: ${ java } 文件不存在`);
+}
 
 // 文件下载地址：https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core/mirai-core-1.2.2.jar
 const githubUrl = 'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow';
