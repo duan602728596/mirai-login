@@ -26,3 +26,6 @@ jdk-darwin
 jdk-win32
 mirai
 mirai/
+packages/mirai-login/data
+packages/mirai-login/logs
+packages/mirai-login/plugins
