@@ -1,6 +1,6 @@
 # mirai-login
 
-一个mirai的登陆器。
+一个 [mirai](https://github.com/mamoe/mirai) 的登陆器。
 
 ## 开始使用
 
