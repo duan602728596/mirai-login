@@ -46,8 +46,8 @@ export const java = path.join(
   'java'
 ); // jdk
 
-// 文件下载地址：https://github.com/project-mirai/mirai-repo/blob/master/shadow/mirai-core/mirai-core-1.2.2.jar
-const githubUrl = 'https://github.com/project-mirai/mirai-repo/blob/master/shadow/';
+// 文件下载地址：https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core/mirai-core-1.2.2.jar
+const githubUrl = 'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow';
 
 export const githubCoreUrl = (v) => `${ githubUrl }/mirai-core/mirai-core-${ v ?? miraiVersion.core }.jar`;
 export const githubCoreQQAndroidUrl

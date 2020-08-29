@@ -30,10 +30,15 @@ function Download(props) {
 
     // 下载新文件
     const file = path.join(content, filename);
+    const text = `正在从 ${ githubJarUrl } 下载 ${ filename } `;
+
+    console.log(text);
 
     await requestDownloadJar(githubJarUrl, file, (progress) => {
       if (messageRef.current) {
-        messageRef.current.innerHTML = `正在下载：${ filename }`;
+        const num = Math.round(progress.percent * 100);
+
+        messageRef.current.innerHTML = `${ text }。已下载${ num > 100 ? 100 : num }%`;
       }
     });
 
