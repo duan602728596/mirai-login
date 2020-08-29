@@ -17,7 +17,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "electron": "^9.2.1",
+    "electron": "^10.1.0",
     "electron-builder": "^22.8.0",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6"
@@ -26,14 +26,14 @@
     "@babel/eslint-parser": "^7.11.4",
     "@sweet-milktea/milktea-cli": "^0.16.3",
     "@sweet-milktea/util-tools": "^0.16.3",
-    "commitizen": "^4.1.2",
+    "commitizen": "^4.2.1",
     "cross-env": "^7.0.2",
-    "cz-conventional-changelog": "^3.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.7.0",
     "eslint-plugin-react": "^7.20.6",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
-    "lint-staged": "^10.2.11",
+    "lint-staged": "^10.2.13",
     "lodash": "^4.17.20",
     "rimraf": "^3.0.2"
   },
