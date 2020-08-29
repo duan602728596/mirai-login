@@ -5,7 +5,7 @@ import { createStructuredSelector, createSelector } from 'reselect';
 import { Button, Form, Modal, Input, Checkbox, message } from 'antd';
 import classNames from 'classnames';
 import style from './useLogin.sass';
-import { java, content } from '../../../utils/utils';
+import { java, mirai, content } from '../../../utils/utils';
 import { setMiriaChild } from '../reducers/reducers';
 
 /* state */
@@ -48,7 +48,7 @@ function UseLogin() {
         '-cp',
         `${ content }/*`,
         'net.mamoe.mirai.console.pure.MiraiConsolePureLoader'
-      ]);
+      ], { cwd: mirai });
       const event = new Event('miriaChildStdoutEvent');
 
       child.stdout.on('data', function(data) {
@@ -84,18 +84,18 @@ function UseLogin() {
   }
 
   // 登陆
-  function login(formValue) {
+  function login(formValue, successCallback) {
     try {
       const child = miriaChild ?? createChild();
       let isLogin = miriaChild ? true : false;
       const handleStdout = (event) => {
         const text = event.data;
 
-        if (/UseLogin successful/i.test(text) && text.includes(formValue.username)) {
+        if (/Login successful/i.test(text) && text.includes(formValue.username)) {
           // 登陆成功
+          successCallback();
           document.removeEventListener(child.event.type, handleStdout, false);
           message.success('登陆成功！');
-          handleLoginCloseClick();
         } else if (/UseLogin failed/i.test(text)) {
           // 登陆失败
           const error = text.match(/Error\(.*\)/i);
@@ -138,7 +138,9 @@ function UseLogin() {
     }
 
     setLoginLoading(true);
-    await login(formValue);
+    await login(formValue, function() {
+      handleLoginCloseClick();
+    });
     setLoginLoading(false);
   }
 
