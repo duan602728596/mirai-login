@@ -2,9 +2,6 @@ import os from 'os';
 import path from 'path';
 import process from 'process';
 import { remote } from 'electron';
-import { mirai as _miraiVersion } from '../../../app/package.json';
-
-export const miraiVersion = _miraiVersion;
 
 const isDev = process.env.NODE_ENV === 'development';
 const exePath = remote.app.getPath('exe'); // 获取可执行文件的路径
@@ -49,9 +46,11 @@ export const java = path.join(
 // 文件下载地址：https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core/mirai-core-1.2.2.jar
 const githubUrl = 'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow';
 
-export const githubCoreUrl = (v) => `${ githubUrl }/mirai-core/mirai-core-${ v ?? miraiVersion.core }.jar`;
-export const githubCoreQQAndroidUrl
-  = (v) => `${ githubUrl }/mirai-core-qqandroid/mirai-core-qqandroid-${ v ?? miraiVersion['core-qqandroid'] }.jar`;
-export const githubConsoleUrl = (v) => `${ githubUrl }/mirai-console/mirai-console-${ v ?? miraiVersion.console }.jar`;
-export const githubConsolePureUrl
-  = (v) => `${ githubUrl }/mirai-console-pure/mirai-console-pure-${ v ?? miraiVersion['console-pure'] }.jar`;
+/**
+ * 下载文件
+ * @param { string } name: 文件名
+ * @param { string } filename: 目录名
+ */
+export function githubDownloadUrl(name, filename) {
+  return `${ githubUrl }/${ name }/${ filename }`;
+}

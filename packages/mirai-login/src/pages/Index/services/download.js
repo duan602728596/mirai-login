@@ -17,3 +17,15 @@ export async function requestDownloadJar(jarUrl, file, procressFunc) {
     fs.createWriteStream(file)
   );
 }
+
+/**
+ * 获取下载列表
+ * @param { string } name: 包名
+ */
+export async function requestJarList(name) {
+  const res = await got.get(`https://github.com/project-mirai/mirai-repo/tree/master/shadow/${ name }`, {
+    timeout: 300_000
+  });
+
+  return res.body;
+}

@@ -44,6 +44,7 @@ export default function(info) {
       'process',
       'stream',
       'util',
+      'cheerio',
       'electron',
       'fs-extra',
       'glob',
