@@ -1,4 +1,5 @@
 import { spawn } from 'child_process';
+import fs from 'fs';
 import { Fragment, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
@@ -46,7 +47,7 @@ function UseLogin() {
   // 开启child进程
   function createChild() {
     if (!miraiChild) {
-      const child = spawn(java, [
+      const child = spawn(fs.existsSync(java) ? java : 'java', [
         '-cp',
         `${ content }/*`,
         'net.mamoe.mirai.console.pure.MiraiConsolePureLoader'
