@@ -85,46 +85,51 @@ function UseLogin() {
 
   // 登陆
   function login(formValue, successCallback) {
-    try {
-      const child = miriaChild ?? createChild();
-      let isLogin = miriaChild ? true : false;
-      const handleStdout = (event) => {
-        const text = event.data;
+    return new Promise((resolve, reject) => {
+      try {
+        const child = miriaChild ?? createChild();
+        let isLogin = miriaChild ? true : false;
+        const handleStdout = (event) => {
+          const text = event.data;
 
-        if (/Login successful/i.test(text) && text.includes(formValue.username)) {
-          // 登陆成功
-          successCallback();
-          document.removeEventListener(child.event.type, handleStdout, false);
-          message.success('登陆成功！');
-        } else if (/UseLogin failed/i.test(text)) {
-          // 登陆失败
-          const error = text.match(/Error\(.*\)/i);
-          const errText = error[0].replace('Error\(', '')
-            .replace(/\)/, '')
-            .split(/\s*,\s*/);
-          const msg = errText.filter((o) => /message/.test(o));
+          if (/Login successful/i.test(text) && text.includes(formValue.username)) {
+            // 登陆成功
+            successCallback();
+            resolve();
+            document.removeEventListener(child.event.type, handleStdout, false);
+            message.success('登陆成功！');
+          } else if (/UseLogin failed/i.test(text)) {
+            // 登陆失败
+            const error = text.match(/Error\(.*\)/i);
+            const errText = error[0].replace('Error\(', '')
+              .replace(/\)/, '')
+              .split(/\s*,\s*/);
+            const msg = errText.filter((o) => /message/.test(o));
 
-          document.removeEventListener(child.event.type, handleStdout, false);
-          message.error(msg[0]);
-        } else if (/^\>/.test(text)) {
-          // 首次启动时需要监听启动完毕后才能登陆
-          if (isLogin === false) {
-            isLogin = true;
-            child.child.stdin.write(`login ${ formValue.username } ${ formValue.password } \n`);
+            resolve();
+            document.removeEventListener(child.event.type, handleStdout, false);
+            message.error(msg[0]);
+          } else if (/^\>/.test(text)) {
+            // 首次启动时需要监听启动完毕后才能登陆
+            if (isLogin === false) {
+              isLogin = true;
+              child.child.stdin.write(`login ${ formValue.username } ${ formValue.password } \n`);
+            }
           }
+        };
+
+        document.addEventListener(child.event.type, handleStdout, false);
+
+        // 进程存在时直接写入命令
+        if (miriaChild) {
+          child.child.stdin.write(`login ${ formValue.username } ${ formValue.password } \n`);
         }
-      };
-
-      document.addEventListener(child.event.type, handleStdout, false);
-
-      // 进程存在时直接写入命令
-      if (miriaChild) {
-        child.child.stdin.write(`login ${ formValue.username } ${ formValue.password } \n`);
+      } catch (err) {
+        console.error(err);
+        resolve();
+        message.error('登陆失败！');
       }
-    } catch (err) {
-      console.error(err);
-      message.error('登陆失败！');
-    }
+    });
   }
 
   // 登陆
