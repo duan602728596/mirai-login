@@ -6,19 +6,19 @@ import { Button, Form, Modal, Input, Checkbox, message } from 'antd';
 import classNames from 'classnames';
 import style from './useLogin.sass';
 import { java, mirai, content } from '../../../utils/utils';
-import { setMiriaChild } from '../reducers/reducers';
+import { setMiraiChild } from '../reducers/reducers';
 
 /* state */
 const state = createStructuredSelector({
-  miriaChild: createSelector(
-    ({ login }) => login.miriaChild,
+  miraiChild: createSelector(
+    ({ login }) => login.miraiChild,
     (data) => data
   )
 });
 
 /* 登陆 */
 function UseLogin() {
-  const { miriaChild } = useSelector(state);
+  const { miraiChild } = useSelector(state);
   const dispatch = useDispatch();
   const [loginVisible, setLoginVisible] = useState(false); // 登陆
   const [loginLoading, setLoginLoading] = useState(false); // loading状态
@@ -37,19 +37,19 @@ function UseLogin() {
   }
 
   // 关闭child进程
-  function handleMiriaChildCloseClick(event) {
-    miriaChild?.child.kill();
+  function handleMiraiChildCloseClick(event) {
+    miraiChild?.child.kill();
   }
 
   // 开启child进程
   function createChild() {
-    if (!miriaChild) {
+    if (!miraiChild) {
       const child = spawn(java, [
         '-cp',
         `${ content }/*`,
         'net.mamoe.mirai.console.pure.MiraiConsolePureLoader'
       ], { cwd: mirai });
-      const event = new Event('miriaChildStdoutEvent');
+      const event = new Event('miraiChildStdoutEvent');
 
       child.stdout.on('data', function(data) {
         const text = data.toString();
@@ -64,9 +64,9 @@ function UseLogin() {
       });
 
       child.on('close', function() {
-        undefined |> setMiriaChild |> dispatch;
-        console.log('miria已关闭');
-        message.error('miria已关闭');
+        undefined |> setMiraiChild |> dispatch;
+        console.log('mirai已关闭');
+        message.error('mirai已关闭');
       });
 
       child.on('error', function(err) {
@@ -75,11 +75,11 @@ function UseLogin() {
 
       const data = { child, event };
 
-      data |> setMiriaChild |> dispatch;
+      data |> setMiraiChild |> dispatch;
 
       return data;
     } else {
-      return miriaChild;
+      return miraiChild;
     }
   }
 
@@ -87,8 +87,8 @@ function UseLogin() {
   function login(formValue, successCallback) {
     return new Promise((resolve, reject) => {
       try {
-        const child = miriaChild ?? createChild();
-        let isLogin = miriaChild ? true : false;
+        const child = miraiChild ?? createChild();
+        let isLogin = miraiChild ? true : false;
         const handleStdout = (event) => {
           const text = event.data;
 
@@ -121,7 +121,7 @@ function UseLogin() {
         document.addEventListener(child.event.type, handleStdout, false);
 
         // 进程存在时直接写入命令
-        if (miriaChild) {
+        if (miraiChild) {
           child.child.stdin.write(`login ${ formValue.username } ${ formValue.password } \n`);
         }
       } catch (err) {
@@ -155,16 +155,16 @@ function UseLogin() {
       (
         <Fragment>
           <Button type="primary" onClick={ handleLoginOpenClick }>登陆</Button>
-          <div className={ classNames(style.statusText, miriaChild ? style.successStatus : style.faildStatus) }>
-            { miriaChild ? 'miria已启动' : 'miria未启动' }
+          <div className={ classNames(style.statusText, miraiChild ? style.successStatus : style.faildStatus) }>
+            { miraiChild ? 'mirai已启动' : 'mirai未启动' }
             <Button className={ style.killChildBtn }
               type="primary"
               size="small"
               danger={ true }
-              disabled={ miriaChild ? undefined : true }
-              onClick={ handleMiriaChildCloseClick }
+              disabled={ miraiChild ? undefined : true }
+              onClick={ handleMiraiChildCloseClick }
             >
-              关闭miria进程
+              关闭mirai进程
             </Button>
           </div>
           <Modal visible={ loginVisible }

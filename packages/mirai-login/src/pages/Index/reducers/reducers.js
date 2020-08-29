@@ -3,17 +3,17 @@ import { createSlice } from '@reduxjs/toolkit';
 const { actions, reducer } = createSlice({
   name: 'login',
   initialState: {
-    miriaChild: undefined // { child, event }
+    miraiChild: undefined // { child, event }
   },
   reducers: {
     // 登陆列表
-    setMiriaChild(state, action) {
-      state.miriaChild = action.payload;
+    setMiraiChild(state, action) {
+      state.miraiChild = action.payload;
 
       return state;
     }
   }
 });
 
-export const { setMiriaChild } = actions;
+export const { setMiraiChild } = actions;
 export default { login: reducer };

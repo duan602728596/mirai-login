@@ -13,6 +13,6 @@ export function createReducer(asyncReducers) {
 }
 
 export const ignoreOptions = {
-  ignoredPaths: ['login.miriaChild'],
-  ignoredActions: ['login/setMiriaChild']
+  ignoredPaths: ['login.miraiChild'],
+  ignoredActions: ['login/setMiraiChild']
 };
