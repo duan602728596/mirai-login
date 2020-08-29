@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
 import { Button, Form, Modal, Input, Checkbox, message } from 'antd';
 import classNames from 'classnames';
+import moment from 'moment';
 import style from './useLogin.sass';
 import { java, mirai, content } from '../../../utils/utils';
-import { setMiraiChild } from '../reducers/reducers';
+import { setMiraiChild, saveFormData } from '../reducers/reducers';
 
 /* state */
 const state = createStructuredSelector({
@@ -33,6 +34,7 @@ function UseLogin() {
   // 关闭登陆弹窗
   function handleLoginCloseClick(event) {
     setLoginVisible(false);
+    setLoginLoading(false);
     resetFields();
   }
 
@@ -94,7 +96,7 @@ function UseLogin() {
 
           if (/Login successful/i.test(text) && text.includes(formValue.username)) {
             // 登陆成功
-            successCallback();
+            successCallback?.();
             resolve();
             document.removeEventListener(child.event.type, handleStdout, false);
             message.success('登陆成功！');
@@ -144,6 +146,17 @@ function UseLogin() {
 
     setLoginLoading(true);
     await login(formValue, function() {
+      // 记住密码
+      if (formValue.rememberPwd) {
+        ({
+          data: {
+            qqNumber: formValue.username,
+            time: moment().format('YYYY-MM-DD HH:mm:ss'),
+            value: { password: formValue.password }
+          }
+        }) |> saveFormData |> dispatch;
+      }
+
       handleLoginCloseClick();
     });
     setLoginLoading(false);
@@ -185,7 +198,7 @@ function UseLogin() {
                 <Input.Password />
               </Form.Item>
               <Form.Item name="rememberPwd" label="记住密码" valuePropName="checked">
-                <Checkbox />
+                <Checkbox>允许快速登陆</Checkbox>
               </Form.Item>
             </Form>
           </Modal>
