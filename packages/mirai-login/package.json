@@ -33,11 +33,5 @@
     "@sweet-milktea/server": "^0.16.1",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24"
-  },
-  "mirai": {
-    "core": "1.2.2",
-    "core-qqandroid": "1.2.2",
-    "console": "1.0-M3-all",
-    "console-pure": "1.0-M3-all"
   }
 }

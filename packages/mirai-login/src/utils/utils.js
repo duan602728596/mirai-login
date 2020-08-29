@@ -2,7 +2,7 @@ import os from 'os';
 import path from 'path';
 import process from 'process';
 import { remote } from 'electron';
-import { mirai as _miraiVersion } from '../../package.json';
+import { mirai as _miraiVersion } from '../../../app/package.json';
 
 export const miraiVersion = _miraiVersion;
 
