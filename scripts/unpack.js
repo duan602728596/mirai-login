@@ -24,7 +24,7 @@ async function unpack() {
   await fse.copy(path.join(cwd, 'packages/app'), appDir);
   await Promise.all([
     fse.copy(path.join(cwd, 'packages/main/lib'), path.join(appDir, 'bin/lib')),
-    fse.copy(path.join(cwd, 'packages/qqtools/dist'), path.join(appDir, 'dist'))
+    fse.copy(path.join(cwd, 'packages/mirai-login/dist'), path.join(appDir, 'dist'))
   ]);
 
   // 配置
