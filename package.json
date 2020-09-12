@@ -37,6 +37,9 @@
     "lodash": "^4.17.20",
     "rimraf": "^3.0.2"
   },
+  "resolutions": {
+    "webpack": "5.0.0-beta.29"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
