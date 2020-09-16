@@ -15,6 +15,12 @@ import { requestDownloadJar, requestJarList } from './services/download';
 
 const globPromise = promisify(glob);
 
+function sleep(time = 0) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, time);
+  });
+}
+
 /* 解析list */
 function formatList(html) {
   const $ = cheerio.load(html);
@@ -47,10 +53,24 @@ function Download(props) {
       messageRef.current.innerHTML = `获取${ name }的版本信息`;
     }
 
-    const filenameList = await requestJarList(name);
-    const filename = formatList(filenameList)?.[0]?.text;
+    let formatFilenameList = []; // 格式化后的文件列表
+    let retry = 0;               // 重试
 
-    if (!filename || (filename && jar.includes(filename))) return;
+    // TODO: 返回的节点可能没有<time-ago>，所以需要重新解析
+    while (formatFilenameList.length === 0 && retry < 20) {
+      const filenameList = await requestJarList(name);
+
+      formatFilenameList = formatList(filenameList);
+      retry++;
+    }
+
+    const filename = formatFilenameList?.[0]?.text;
+
+    if (!filename || (filename && jar.includes(filename))) {
+      await sleep(5000); // 延迟5s，避免请求过于频繁
+
+      return;
+    }
 
     // 下载新文件
     const githubJarUrl = githubDownloadUrl(name, filename);
