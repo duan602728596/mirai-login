@@ -5,9 +5,9 @@ import { createStructuredSelector, createSelector } from 'reselect';
 import { Space, List, Button } from 'antd';
 import { ToolFilled as IconToolFilled } from '@ant-design/icons';
 import style from './index.sass';
-import useLogin from './Login/useLogin';
-import Download from './Download';
-import JdkPath from './JdkPath';
+import useLogin from './useLogin/useLogin';
+import Download from './func/Download';
+import JdkPath from './func/JdkPath';
 import { queryOptionsList, deleteOption } from './reducers/reducers';
 import dbConfig from '../../utils/dbInit/dbConfig';
 

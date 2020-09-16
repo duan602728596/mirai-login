@@ -1,17 +1,17 @@
-import { Fragment, useState, useRef } from 'react';
 import { promisify } from 'util';
 import fs from 'fs';
 import path from 'path';
 import fse from 'fs-extra';
 import glob from 'glob';
 import cheerio from 'cheerio';
+import { Fragment, useState, useRef } from 'react';
 import { Button, Alert, message } from 'antd';
 import { DownloadOutlined as IconDownloadOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import { orderBy } from 'lodash';
 import style from './download.sass';
-import { content, githubDownloadUrl } from '../../utils/utils';
-import { requestDownloadJar, requestJarList } from './services/download';
+import { content, githubDownloadUrl } from '../../../utils/utils';
+import { requestDownloadJar, requestJarList } from '../services/download';
 
 const globPromise = promisify(glob);
 
