@@ -88,11 +88,9 @@ async function unpack() {
   await Promise.all([
     fse.copy(path.join(cwd, 'LICENSE'), path.join(build, 'mac/mac/LICENSE')),
     fse.copy(path.join(cwd, 'README.md'), path.join(build, 'mac/mac/README.md')),
-    fse.copy(path.join(cwd, 'jdk-darwin'), path.join(build, 'mac/mac/jdk-darwin')),
 
     fse.copy(path.join(cwd, 'LICENSE'), path.join(build, 'win/win-unpacked/LICENSE')),
-    fse.copy(path.join(cwd, 'README.md'), path.join(build, 'win/win-unpacked/README.md')),
-    fse.copy(path.join(cwd, 'jdk-win32'), path.join(build, 'win/win-unpacked/jdk-win32'))
+    fse.copy(path.join(cwd, 'README.md'), path.join(build, 'win/win-unpacked/README.md'))
   ]);
 }
 
