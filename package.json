@@ -38,7 +38,7 @@
     "rimraf": "^3.0.2"
   },
   "resolutions": {
-    "@sweet-milktea/**/webpack": "5.0.0-beta.29"
+    "webpack": "5.0.0-beta.29"
   },
   "husky": {
     "hooks": {
