@@ -17,7 +17,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "electron": "^10.1.1",
+    "electron": "^10.1.2",
     "electron-builder": "^22.8.0",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6"
@@ -29,7 +29,7 @@
     "commitizen": "^4.2.1",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.8.1",
+    "eslint": "^7.9.0",
     "eslint-plugin-react": "^7.20.6",
     "husky": "^4.3.0",
     "lerna": "^3.22.1",
@@ -38,7 +38,7 @@
     "rimraf": "^3.0.2"
   },
   "resolutions": {
-    "webpack": "5.0.0-beta.29"
+    "@sweet-milktea/**/webpack": "5.0.0-beta.29"
   },
   "husky": {
     "hooks": {
