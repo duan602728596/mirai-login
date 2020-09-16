@@ -7,6 +7,7 @@ import { ToolFilled as IconToolFilled } from '@ant-design/icons';
 import style from './index.sass';
 import useLogin from './Login/useLogin';
 import Download from './Download';
+import JdkPath from './JdkPath';
 import { queryOptionsList, deleteOption } from './reducers/reducers';
 import dbConfig from '../../utils/dbInit/dbConfig';
 
@@ -82,6 +83,7 @@ function Index(props) {
       <Space className={ style.tools }>
         { login.element }
         <Download />
+        <JdkPath />
         <Button type="text" icon={ <IconToolFilled /> } onClick={ handleOpenDeveloperToolsClick } />
       </Space>
       {/* 快速登陆 */}
