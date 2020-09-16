@@ -1,5 +1,4 @@
 import { spawn } from 'child_process';
-import fs from 'fs';
 import { Fragment, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
@@ -7,7 +6,7 @@ import { Button, Form, Modal, Input, Checkbox, message } from 'antd';
 import classNames from 'classnames';
 import moment from 'moment';
 import style from './useLogin.sass';
-import { java, mirai, content } from '../../../utils/utils';
+import { getJavaPath, mirai, content } from '../../../utils/utils';
 import { setMiraiChild, saveFormData } from '../reducers/reducers';
 
 /* state */
@@ -47,7 +46,7 @@ function UseLogin() {
   // 开启child进程
   function createChild() {
     if (!miraiChild) {
-      const child = spawn(fs.existsSync(java) ? java : 'java', [
+      const child = spawn(getJavaPath(), [
         '-cp',
         `${ content }/*`,
         'net.mamoe.mirai.console.pure.MiraiConsolePureLoader'

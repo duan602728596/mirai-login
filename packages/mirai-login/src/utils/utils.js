@@ -43,10 +43,15 @@ export const java = path.join(
   platform === 'darwin' ? 'Contents/Home/bin/java' : 'bin/java.exe'
 ); // jdk
 
-if (fs.existsSync(java)) {
-  console.log(`jdk: ${ java }`);
-} else {
-  console.warn(`jdk: ${ java } 文件不存在`);
+/* 获取java的可执行文件的地址 */
+export function getJavaPath() {
+  const javaPath = localStorage.getItem('JAVA_PATH'); // 本机配置
+
+  if (javaPath) return javaPath;
+
+  if (fs.existsSync(java)) return java;
+
+  return 'java';
 }
 
 // 文件下载地址：https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core/mirai-core-1.2.2.jar
