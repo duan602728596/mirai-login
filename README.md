@@ -1,22 +1,22 @@
 # mirai-login
 
-一个 [mirai](https://github.com/mamoe/mirai) 的登陆器。
+一个 [mirai](https://github.com/mamoe/mirai) 的带gui的登陆器。使用Electron开发。
 
 ## 开始使用
 
 * 安装jar包
 
-  * 第一次运行时，请点击`下载mirai`，下载mirai的jar包，或者自行下载jar包，放到程序目录下的`<mirai_path>/mirai/content下`。
+  * 第一次运行时，请点击`下载mirai`，下载mirai的jar包，或者自行下载jar包，放到程序目录下的`<mirai_path>/mirai/content下`。（手动点击下载，避免由于墙的原因下载失败。也可以下载完拷贝到目录）
 
   * 以后点击`下载mirai`，会自动获取最新版本并下载。
   
-* <del>软件自带了jdk，如果删除jdk文件使用系统配置好的jdk。</del>
+* 软件可以配置jdk文件的路径（java）；可以拷贝jdk文件到软件内，然后自动寻找jdk文件的路径；或者直接使用系统环境变量配置的jdk。
 
 * 登陆时选择**记住密码**，可以保存账号信息并可以快速登陆。
 
-## 开发
+## jdk
 
-下载jdk文件并放在目录下，mac环境下的目录是`jdk-darwin`，window环境下的目录是`jdk-win32`。
+下载jdk文件并放在目录下，mac环境下的目录是`<mirai_path>/jdk-darwin`，window环境下的目录是`<mirai_path>/jdk-win32`。
 
 ## 如何编译
 
