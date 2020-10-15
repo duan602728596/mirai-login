@@ -65,7 +65,7 @@ function Download(props) {
 
     // 下载文件
     await downloadJar(jar, miraiDependencies, 'mirai-core-qqandroid', /^mirai-core-qqandroid/i);
-    await downloadJar(jar, miraiDependencies, 'mirai-console', /^mirai-console-(?!pure)/i);
+    await downloadJar(jar, miraiDependencies, 'mirai-console', /^mirai-console-(?!terminal)/i);
     await downloadJar(jar, miraiDependencies, 'mirai-console-terminal', /^mirai-console-terminal/i);
 
     setAlertVisible(false);
