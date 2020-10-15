@@ -69,12 +69,5 @@ export default function(info) {
     html: [{ template: path.join(__dirname, 'src/index.pug') }]
   };
 
-  // TODO: 开发环境不配置publicPath会造成编译错误
-  if (isDev) {
-    config.output = {
-      publicPath: '/'
-    };
-  }
-
   return config;
 }
