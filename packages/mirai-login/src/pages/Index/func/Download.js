@@ -3,44 +3,14 @@ import fs from 'fs';
 import path from 'path';
 import fse from 'fs-extra';
 import glob from 'glob';
-import cheerio from 'cheerio';
 import { Fragment, useState, useRef } from 'react';
 import { Button, Alert, message } from 'antd';
 import { DownloadOutlined as IconDownloadOutlined } from '@ant-design/icons';
-import moment from 'moment';
-import { orderBy } from 'lodash';
 import style from './download.sass';
 import { content, githubDownloadUrl } from '../../../utils/utils';
-import { requestDownloadJar, requestJarList } from '../services/download';
+import { requestDownloadJar, requestMiraiDependencies } from '../services/download';
 
 const globPromise = promisify(glob);
-
-function sleep(time = 0) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, time);
-  });
-}
-
-/* 解析list */
-function formatList(html) {
-  const $ = cheerio.load(html);
-  const $list = $('.Box.mb-3 .js-navigation-item.position-relative');
-
-  const result = [];
-
-  $list.each(function(index, element) {
-    const text = $(element).find('a').first().text();
-    const timeAgo = $(element).find('time-ago').attr('datetime');
-
-    result.push({
-      text,
-      time: timeAgo,
-      timeNumber: timeAgo ? moment(timeAgo).valueOf() : undefined
-    });
-  });
-
-  return orderBy(result.filter((o) => o.timeNumber), ['timeNumber'], ['desc']);
-}
 
 /* 更新 */
 function Download(props) {
@@ -48,29 +18,10 @@ function Download(props) {
   const [alertVisible, setAlertVisible] = useState(false);
 
   // 下载mirai-core
-  async function downloadJar(jar, name, fileRegExp) {
-    if (messageRef.current) {
-      messageRef.current.innerHTML = `获取${ name }的版本信息`;
-    }
+  async function downloadJar(jar, miraiDependencies, name, fileRegExp) {
+    const filename = `${ name }-${ miraiDependencies[name] }.jar`; // 文件名
 
-    let formatFilenameList = []; // 格式化后的文件列表
-    let retry = 0;               // 重试
-
-    // TODO: 返回的节点可能没有<time-ago>，所以需要重新解析
-    while (formatFilenameList.length === 0 && retry < 20) {
-      const filenameList = await requestJarList(name);
-
-      formatFilenameList = formatList(filenameList);
-      retry++;
-    }
-
-    const filename = formatFilenameList?.[0]?.text;
-
-    if (!filename || (filename && jar.includes(filename))) {
-      await sleep(5000); // 延迟5s，避免请求过于频繁
-
-      return;
-    }
+    if (jar.includes(filename)) return; // 文件存在，不需要重新下载
 
     // 下载新文件
     const githubJarUrl = githubDownloadUrl(name, filename);
@@ -106,10 +57,16 @@ function Download(props) {
       jar = await globPromise('**/*.jar', { cwd: content });
     }
 
+    if (messageRef.current) {
+      messageRef.current.innerHTML = '获取版本信息';
+    }
+
+    const { miraiDependencies } = await requestMiraiDependencies(); // 获取依赖信息
+
     // 下载文件
-    await downloadJar(jar, 'mirai-core-qqandroid', /^mirai-core-qqandroid/i);
-    await downloadJar(jar, 'mirai-console', /^mirai-console-(?!pure)/i);
-    await downloadJar(jar, 'mirai-console-terminal', /^mirai-console-terminal/i);
+    await downloadJar(jar, miraiDependencies, 'mirai-core-qqandroid', /^mirai-core-qqandroid/i);
+    await downloadJar(jar, miraiDependencies, 'mirai-console', /^mirai-console-(?!pure)/i);
+    await downloadJar(jar, miraiDependencies, 'mirai-console-terminal', /^mirai-console-terminal/i);
 
     setAlertVisible(false);
     message.success('下载完成！');

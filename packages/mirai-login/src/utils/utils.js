@@ -34,8 +34,8 @@ if (isDev) {
   }
 }
 
-export const app = _app;                       // 可执行文件的路径
-export const mirai = path.join(_app, 'mirai'); // mirai
+export const app = _app;                            // 可执行文件的路径
+export const mirai = path.join(_app, 'mirai');      // mirai
 export const content = path.join(mirai, 'content'); // mirai
 export const java = path.join(
   _app,

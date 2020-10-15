@@ -18,13 +18,10 @@ export async function requestDownloadJar(jarUrl, file, procressFunc) {
   );
 }
 
-/**
- * 获取下载列表
- * @param { string } name: 包名
- */
-export async function requestJarList(name) {
-  const res = await got.get(`https://github.com/project-mirai/mirai-repo/tree/master/shadow/${ name }`, {
-    timeout: 300_000
+/* 查询依赖列表 */
+export async function requestMiraiDependencies() {
+  const res = await got.get('https://raw.githubusercontent.com/duan602728596/mirai-login/master/package.json', {
+    responseType: 'json'
   });
 
   return res.body;
