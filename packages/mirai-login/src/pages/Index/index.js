@@ -2,13 +2,14 @@ import { ipcRenderer } from 'electron';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
-import { Space, List, Button } from 'antd';
+import { Space, List, Button, Checkbox } from 'antd';
 import { ToolFilled as IconToolFilled } from '@ant-design/icons';
+import { cloneDeep } from 'lodash';
 import style from './index.sass';
 import useLogin from './useLogin/useLogin';
 import Download from './func/Download';
 import JdkPath from './func/JdkPath';
-import { queryOptionsList, deleteOption } from './reducers/reducers';
+import { queryOptionsList, saveFormDataButNotPushData, deleteOption } from './reducers/reducers';
 import dbConfig from '../../utils/dbInit/dbConfig';
 
 /* state */
@@ -38,17 +39,53 @@ function Index(props) {
     });
   }
 
+  // 一键登陆
+  async function handleAutoLoginClick(event) {
+    const allowOptionsList = optionsList.filter((o) => o.value.allowAutoLogin);
+
+    for (const item of allowOptionsList) {
+      await login.login({
+        username: item.qqNumber,
+        password: item.value.password
+      });
+    }
+  }
+
   // 删除
   function handleDeleteClick(item, event) {
     ({ query: item.qqNumber }) |> deleteOption |> dispatch;
   }
 
+  // 一键登陆时运行该账户
+  function handleAllowAutoLoginChange(item, event) {
+    const newItem = cloneDeep(item);
+    const checked = event.target.checked;
+
+    if (checked) {
+      newItem.value.allowAutoLogin = true;
+    } else {
+      delete newItem.value.allowAutoLogin;
+    }
+
+    dispatch(saveFormDataButNotPushData({
+      data: newItem
+    }));
+  }
+
   // 渲染账号列表
   function listItemRender(item) {
+    const { qqNumber, time, value } = item;
+
     return (
-      <List.Item key={ item.qqNumber }
+      <List.Item key={ qqNumber }
         actions={
           [
+            <Checkbox key="allowAutoLogin"
+              checked={ value.allowAutoLogin }
+              onChange={ (event) => handleAllowAutoLoginChange(item, event) }
+            >
+              一键登陆时运行该账户
+            </Checkbox>,
             <Button key="login"
               type="text"
               onClick={ (event) => handleLoginClick(item, event) }
@@ -65,7 +102,7 @@ function Index(props) {
           ]
         }
       >
-        <List.Item.Meta title={ item.qqNumber } description={ item.time } />
+        <List.Item.Meta title={ qqNumber } description={ time } />
       </List.Item>
     );
   }
@@ -81,6 +118,8 @@ function Index(props) {
   return (
     <div className={ style.content }>
       <Space className={ style.tools }>
+        <Button type="primary" onClick={ login.handleLoginOpenClick }>登陆</Button>
+        <Button onClick={ handleAutoLoginClick }>一键登陆所有账户</Button>
         { login.element }
         <Download />
         <JdkPath />

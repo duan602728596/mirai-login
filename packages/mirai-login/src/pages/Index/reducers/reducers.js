@@ -38,6 +38,17 @@ const { actions, reducer } = createSlice({
       return state;
     },
 
+    // 更新数据
+    setOptionUpdateList(state, action) {
+      const index = findIndex(state.optionsList, {
+        qqNumber: action.payload.data.qqNumber
+      });
+
+      state.optionsList[index] = action.payload.data;
+
+      return state;
+    },
+
     // 删除
     setDeleteOption(state, action) {
       const index = findIndex(state.optionsList, {
@@ -51,7 +62,7 @@ const { actions, reducer } = createSlice({
   }
 });
 
-export const { setMiraiChild, setOptionsList, setOptionSaveList, setDeleteOption } = actions;
+export const { setMiraiChild, setOptionsList, setOptionSaveList, setOptionUpdateList, setDeleteOption } = actions;
 
 // 获取列表
 export const queryOptionsList = dbRedux.cursorAction({
@@ -63,6 +74,12 @@ export const queryOptionsList = dbRedux.cursorAction({
 export const saveFormData = dbRedux.putAction({
   objectStoreName,
   successAction: setOptionSaveList
+});
+
+// 保存数据，但是只更新，没有添加数据的操作
+export const saveFormDataButNotPushData = dbRedux.putAction({
+  objectStoreName,
+  successAction: setOptionUpdateList
 });
 
 // 删除

@@ -97,9 +97,9 @@ function UseLogin() {
           if (/Login successful/i.test(text) && text.includes(formValue.username)) {
             // 登陆成功
             successCallback?.();
-            resolve();
             document.removeEventListener(child.event.type, handleStdout, false);
-            message.success('登陆成功！');
+            message.success(`[${ formValue.username }] 登陆成功！`);
+            resolve();
           } else if (/UseLogin failed/i.test(text)) {
             // 登陆失败
             const error = text.match(/Error\(.*\)/i);
@@ -108,9 +108,9 @@ function UseLogin() {
               .split(/\s*,\s*/);
             const msg = errText.filter((o) => /message/.test(o));
 
-            resolve();
             document.removeEventListener(child.event.type, handleStdout, false);
-            message.error(msg[0]);
+            message.error(`[${ formValue.username }]${ msg[0] }`);
+            resolve();
           } else if (/^\>/.test(text)) {
             // 首次启动时需要监听启动完毕后才能登陆
             if (isLogin === false) {
@@ -164,10 +164,10 @@ function UseLogin() {
 
   return {
     login,
+    handleLoginOpenClick,
     element: (
       (
         <Fragment>
-          <Button type="primary" onClick={ handleLoginOpenClick }>登陆</Button>
           <div className={ classNames(style.statusText, miraiChild ? style.successStatus : style.faildStatus) }>
             { miraiChild ? 'mirai已启动' : 'mirai未启动' }
             <Button className={ style.killChildBtn }
