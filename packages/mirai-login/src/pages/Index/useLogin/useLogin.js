@@ -49,7 +49,7 @@ function UseLogin() {
       const child = spawn(getJavaPath(), [
         '-cp',
         `${ content }/*`,
-        'net.mamoe.mirai.console.pure.MiraiConsolePureLoader'
+        'net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader'
       ], { cwd: mirai });
       const event = new Event('miraiChildStdoutEvent');
 
