@@ -1,6 +1,6 @@
 {
   "name": "@mirai-login/main",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "start": "npm run clean && babel src --out-dir lib --watch",
     "dev": "npm run clean && babel src --out-dir lib",
