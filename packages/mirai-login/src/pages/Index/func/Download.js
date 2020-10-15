@@ -77,8 +77,6 @@ function Download(props) {
     const file = path.join(content, filename);
     const text = `正在从 ${ githubJarUrl } 下载 ${ filename } `;
 
-    console.log(text);
-
     await requestDownloadJar(githubJarUrl, file, (progress) => {
       if (messageRef.current) {
         const num = Math.round(progress.percent * 100);
@@ -111,7 +109,7 @@ function Download(props) {
     // 下载文件
     await downloadJar(jar, 'mirai-core-qqandroid', /^mirai-core-qqandroid/i);
     await downloadJar(jar, 'mirai-console', /^mirai-console-(?!pure)/i);
-    await downloadJar(jar, 'mirai-console-pure', /^mirai-console-pure/i);
+    await downloadJar(jar, 'mirai-console-terminal', /^mirai-console-terminal/i);
 
     setAlertVisible(false);
     message.success('下载完成！');
