@@ -15,7 +15,7 @@ function AppDirPath(props) {
   // 打开配置弹出层
   function handleOpenAppDirConfigurationClick(event) {
     form.setFieldsValue({
-      jdkPath: localStorage.getItem('APP_DIR')
+      appDir: localStorage.getItem('APP_DIR')
     });
     setVisible(true);
   }
