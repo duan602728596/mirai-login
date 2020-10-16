@@ -12,6 +12,8 @@
   
 * 软件可以配置jdk文件的路径（java）；可以拷贝jdk文件到软件内，然后自动寻找jdk文件的路径；或者直接使用系统环境变量配置的jdk。
 
+* 当你使用苹果系统时，需要配置软件目录，保证能够正常安装和运行软件。这是由于苹果系统的安全性的性质导致的（[参考](https://discuss.as3lang.org/t/nativepath-points-to-private-var-folders-on-osx-after-download-instead-of-users-username-why/1679)）。
+
 * 登陆时选择**记住密码**，可以保存账号信息并可以快速登陆。
 
 ## jdk
