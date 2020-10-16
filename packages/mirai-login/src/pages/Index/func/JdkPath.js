@@ -17,11 +17,6 @@ function JdkPath(props) {
     setVisible(true);
   }
 
-  // 完全关闭
-  function handleModalAfterClose() {
-    form.resetFields();
-  }
-
   // 取消
   function handleCloseModalClick(event) {
     setVisible(false);
@@ -48,7 +43,7 @@ function JdkPath(props) {
     handleCloseModalClick();
   }
 
-  // 清除配置
+  // 清除配置和完全关闭
   function handleResetJdkPathClick(event) {
     form.resetFields();
   }
@@ -73,7 +68,7 @@ function JdkPath(props) {
         visible={ visible }
         width={ 600 }
         centered={ true }
-        afterClose={ handleModalAfterClose }
+        afterClose={ handleResetJdkPathClick }
         onOk={ handleSetJdkConfigurationClick }
         onCancel={ handleCloseModalClick }
       >

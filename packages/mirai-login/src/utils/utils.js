@@ -5,7 +5,7 @@ import fs from 'fs';
 import { remote } from 'electron';
 
 const isDev = process.env.NODE_ENV === 'development';
-const platform = os.platform();                  // 获取操作系统
+const platform = os.platform(); // 获取操作系统
 
 /* 获取可执行文件的路径 */
 export function getApp() {

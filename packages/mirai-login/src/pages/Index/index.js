@@ -1,3 +1,4 @@
+import os from 'os';
 import { ipcRenderer } from 'electron';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -9,8 +10,11 @@ import style from './index.sass';
 import useLogin from './useLogin/useLogin';
 import Download from './func/Download';
 import JdkPath from './func/JdkPath';
+import AppDirPath from './func/AppDirPath';
 import { queryOptionsList, saveFormDataButNotPushData, deleteOption } from './reducers/reducers';
 import dbConfig from '../../utils/dbInit/dbConfig';
+
+const platform = os.platform(); // 获取操作系统
 
 /* state */
 const state = createStructuredSelector({
@@ -128,6 +132,7 @@ function Index(props) {
         <Space>
           <Download />
           <JdkPath />
+          { platform === 'darwin' ? <AppDirPath /> : null }
           <Button type="text" icon={ <IconToolFilled /> } onClick={ handleOpenDeveloperToolsClick } />
         </Space>
       </div>
