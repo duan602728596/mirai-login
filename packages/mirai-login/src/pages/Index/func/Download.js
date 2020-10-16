@@ -7,7 +7,7 @@ import { Fragment, useState, useRef } from 'react';
 import { Button, Alert, message } from 'antd';
 import { DownloadOutlined as IconDownloadOutlined } from '@ant-design/icons';
 import style from './download.sass';
-import { content, githubDownloadUrl } from '../../../utils/utils';
+import { getContent, githubDownloadUrl } from '../../../utils/utils';
 import { requestDownloadJar, requestMiraiDependencies } from '../services/download';
 
 const globPromise = promisify(glob);
@@ -19,6 +19,7 @@ function Download(props) {
 
   // 下载mirai-core
   async function downloadJar(jar, miraiDependencies, name, fileRegExp) {
+    const content = getContent();
     const filename = `${ name }-${ miraiDependencies[name] }.jar`; // 文件名
 
     if (jar.includes(filename)) return; // 文件存在，不需要重新下载
@@ -48,6 +49,7 @@ function Download(props) {
   async function handleDownloadMirai(event) {
     setAlertVisible(true);
 
+    const content = getContent();
     let jar = []; // 获取jar文件
 
     // 如果目录不存在，则创建

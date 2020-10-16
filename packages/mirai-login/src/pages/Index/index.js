@@ -117,14 +117,20 @@ function Index(props) {
 
   return (
     <div className={ style.content }>
-      <Space className={ style.tools }>
-        <Button type="primary" onClick={ login.handleLoginOpenClick }>登陆</Button>
-        <Button onClick={ handleAutoLoginClick }>一键登陆所有账户</Button>
-        { login.element }
-        <Download />
-        <JdkPath />
-        <Button type="text" icon={ <IconToolFilled /> } onClick={ handleOpenDeveloperToolsClick } />
-      </Space>
+      <div className={ style.tools }>
+        <Space>
+          <Button type="primary" onClick={ login.handleLoginOpenClick }>登陆</Button>
+          <Button onClick={ handleAutoLoginClick }>一键登陆所有账户</Button>
+          { login.element }
+        </Space>
+      </div>
+      <div className={ style.tools }>
+        <Space>
+          <Download />
+          <JdkPath />
+          <Button type="text" icon={ <IconToolFilled /> } onClick={ handleOpenDeveloperToolsClick } />
+        </Space>
+      </div>
       {/* 快速登陆 */}
       <div className={ style.list }>
         <List size="small" dataSource={ optionsList } renderItem={ listItemRender } bordered={ true } />

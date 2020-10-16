@@ -6,7 +6,7 @@ import { Button, Form, Modal, Input, Checkbox, message } from 'antd';
 import classNames from 'classnames';
 import moment from 'moment';
 import style from './useLogin.sass';
-import { getJavaPath, mirai, content } from '../../../utils/utils';
+import { getJavaPath, getMirai, getContent } from '../../../utils/utils';
 import { setMiraiChild, saveFormData } from '../reducers/reducers';
 
 /* state */
@@ -48,9 +48,9 @@ function UseLogin() {
     if (!miraiChild) {
       const child = spawn(getJavaPath(), [
         '-cp',
-        `${ content }/*`,
+        `${ getContent() }/*`,
         'net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader'
-      ], { cwd: mirai });
+      ], { cwd: getMirai() });
       const event = new Event('miraiChildStdoutEvent');
 
       child.stdout.on('data', function(data) {

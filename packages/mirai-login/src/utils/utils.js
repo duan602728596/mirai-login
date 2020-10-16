@@ -5,19 +5,25 @@ import fs from 'fs';
 import { remote } from 'electron';
 
 const isDev = process.env.NODE_ENV === 'development';
-const exePath = remote.app.getPath('exe'); // 获取可执行文件的路径
-const dir = path.dirname(exePath);               // 获取目录
 const platform = os.platform();                  // 获取操作系统
 
-let _app = '';
+/* 获取可执行文件的路径 */
+export function getApp() {
+  if (isDev) {
+    return path.join(process.cwd(), '../..');
+  }
 
-if (isDev) {
-  // 开发环境
-  _app = path.join(process.cwd(), '../..');
-} else {
-  // 生产环境
-  _app = dir;
+  // TODO: 由于mac系统的安全限制，electron无法获取可执行文件的位置，所以需要人工配置
+  if (platform === 'darwin') {
+    const APP_DIR = localStorage.getItem('APP_DIR');
 
+    if (APP_DIR) return APP_DIR;
+  }
+
+  const exePath = remote.app.getPath('exe'); // 获取可执行文件的路径
+  let dir = path.dirname(exePath);                  // 获取目录
+
+  // TODO: mac系统需要获取'*.app'文件的位置
   if (platform === 'darwin') {
     const dirArr = dir.split(/\//).filter((o) => o !== '');
     const newDir = [];
@@ -30,24 +36,38 @@ if (isDev) {
       }
     }
 
-    _app = `/${ newDir.join('/') }`;
+    dir = `/${ newDir.join('/') }`;
   }
+
+  return dir;
 }
 
-export const app = _app;                            // 可执行文件的路径
-export const mirai = path.join(_app, 'mirai');      // mirai
-export const content = path.join(mirai, 'content'); // mirai
-export const java = path.join(
-  _app,
-  `jdk-${ platform }`,
-  platform === 'darwin' ? 'Contents/Home/bin/java' : 'bin/java.exe'
-); // jdk
+/* 获取mirai的文件夹路径 */
+export function getMirai() {
+  return path.join(getApp(), 'mirai');
+}
+
+/* 获取jdk的路径 */
+export function getContent() {
+  return path.join(getMirai(), 'content');
+}
+
+/* 获取java的文件地址 */
+export function getJava() {
+  return path.join(
+    getApp(),
+    `jdk-${ platform }`,
+    platform === 'darwin' ? 'Contents/Home/bin/java' : 'bin/java.exe'
+  );
+}
 
 /* 获取java的可执行文件的地址 */
 export function getJavaPath() {
   const javaPath = localStorage.getItem('JAVA_PATH'); // 本机配置
 
   if (javaPath) return javaPath;
+
+  const java = getJava();
 
   if (fs.existsSync(java)) return java;
 
