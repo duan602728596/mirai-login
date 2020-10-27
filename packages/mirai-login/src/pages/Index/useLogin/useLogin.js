@@ -58,7 +58,7 @@ function UseLogin() {
 
       // 如果有mirai-console-pure插件，则修改入口
       for (const item of jar) {
-        if (/pure/.test(item)) {
+        if (/pure/i.test(item)) {
           jarEntryName = 'net.mamoe.mirai.console.pure.MiraiConsolePureLoader';
           break;
         }
