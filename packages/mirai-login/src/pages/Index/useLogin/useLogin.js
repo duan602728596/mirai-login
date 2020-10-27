@@ -1,4 +1,6 @@
+import { promisify } from 'util';
 import { spawn } from 'child_process';
+import glob from 'glob';
 import { Fragment, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
@@ -8,6 +10,8 @@ import moment from 'moment';
 import style from './useLogin.sass';
 import { getJavaPath, getMirai, getContent } from '../../../utils/utils';
 import { setMiraiChild, saveFormData } from '../reducers/reducers';
+
+const globPromise = promisify(glob);
 
 /* state */
 const state = createStructuredSelector({
@@ -43,14 +47,24 @@ function UseLogin() {
     miraiChild?.child.kill();
   }
 
-  // 开启child进程
-  function createChild() {
+  // 开启child进程，不同的jar启动不同的入口
+  // mirai-console-pure     => net.mamoe.mirai.console.pure.MiraiConsolePureLoader
+  // mirai-console-terminal => net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader
+  async function createChild() {
     if (!miraiChild) {
-      const child = spawn(getJavaPath(), [
-        '-cp',
-        `${ getContent() }/*`,
-        'net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader'
-      ], { cwd: getMirai() });
+      const content = getContent();
+      const jar = await globPromise('**/*.jar', { cwd: content });                      // 查找jar包
+      let jarEntryName = 'net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader'; // 入口
+
+      // 如果有mirai-console-pure插件，则修改入口
+      for (const item of jar) {
+        if (/pure/.test(item)) {
+          jarEntryName = 'net.mamoe.mirai.console.pure.MiraiConsolePureLoader';
+          break;
+        }
+      }
+
+      const child = spawn(getJavaPath(), ['-cp', `${ content }/*`, jarEntryName], { cwd: getMirai() });
       const event = new Event('miraiChildStdoutEvent');
 
       child.stdout.on('data', function(data) {
@@ -87,9 +101,9 @@ function UseLogin() {
 
   // 登陆
   function login(formValue, successCallback) {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       try {
-        const child = miraiChild ?? createChild();
+        const child = miraiChild ?? (await createChild());
         let isLogin = miraiChild ? true : false;
         const handleStdout = (event) => {
           const text = event.data;
