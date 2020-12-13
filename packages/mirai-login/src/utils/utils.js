@@ -74,14 +74,15 @@ export function getJavaPath() {
   return 'java';
 }
 
-// 文件下载地址：https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow/mirai-core/mirai-core-1.2.2.jar
-const githubUrl = 'https://raw.githubusercontent.com/project-mirai/mirai-repo/master/shadow';
+// 文件下载地址：https://dl.bintray.com/him188moe/mirai/net/mamoe/mirai-console/1.1.0/mirai-console-1.1.0.jar
+const bintrayUrl = 'https://dl.bintray.com/him188moe/mirai/net/mamoe/';
 
 /**
  * 下载文件
  * @param { string } name: 文件名
+ * @param { string } version: 版本号
  * @param { string } filename: 目录名
  */
-export function githubDownloadUrl(name, filename) {
-  return `${ githubUrl }/${ name }/${ filename }`;
+export function bintrayDownloadUrl(name, version, filename) {
+  return `${ bintrayUrl }/${ name }/${ version }/${ filename }`;
 }

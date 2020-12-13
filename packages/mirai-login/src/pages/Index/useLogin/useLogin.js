@@ -86,7 +86,7 @@ function UseLogin() {
       });
 
       child.on('error', function(err) {
-        console.err(err);
+        console.error(err);
       });
 
       const data = { child, event };

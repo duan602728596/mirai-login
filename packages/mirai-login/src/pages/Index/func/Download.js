@@ -7,7 +7,7 @@ import { Fragment, useState, useRef } from 'react';
 import { Button, Alert, message } from 'antd';
 import { DownloadOutlined as IconDownloadOutlined } from '@ant-design/icons';
 import style from './download.sass';
-import { getContent, githubDownloadUrl } from '../../../utils/utils';
+import { getContent, bintrayDownloadUrl } from '../../../utils/utils';
 import { requestDownloadJar, requestMiraiDependencies } from '../services/download';
 
 const globPromise = promisify(glob);
@@ -20,16 +20,16 @@ function Download(props) {
   // 下载mirai-core
   async function downloadJar(jar, miraiDependencies, name, fileRegExp) {
     const content = getContent();
-    const filename = `${ name }-${ miraiDependencies[name] }.jar`; // 文件名
+    const filename = `${ name }-${ miraiDependencies[name] }-all.jar`; // 文件名
 
     if (jar.includes(filename)) return; // 文件存在，不需要重新下载
 
     // 下载新文件
-    const githubJarUrl = githubDownloadUrl(name, filename);
+    const jarUrl = bintrayDownloadUrl(name, miraiDependencies[name], filename);
     const file = path.join(content, filename);
-    const text = `正在从 ${ githubJarUrl } 下载 ${ filename } `;
+    const text = `正在从 ${ jarUrl } 下载 ${ filename } `;
 
-    await requestDownloadJar(githubJarUrl, file, (progress) => {
+    await requestDownloadJar(jarUrl, file, (progress) => {
       if (messageRef.current) {
         const num = Math.round(progress.percent * 100);
 
@@ -66,7 +66,7 @@ function Download(props) {
     const { miraiDependencies } = await requestMiraiDependencies(); // 获取依赖信息
 
     // 下载文件
-    await downloadJar(jar, miraiDependencies, 'mirai-core-qqandroid', /^mirai-core-qqandroid/i);
+    await downloadJar(jar, miraiDependencies, 'mirai-core-all', /^mirai-core-all/i);
     await downloadJar(jar, miraiDependencies, 'mirai-console', /^mirai-console-(?!terminal)/i);
     await downloadJar(jar, miraiDependencies, 'mirai-console-terminal', /^mirai-console-terminal/i);
 
