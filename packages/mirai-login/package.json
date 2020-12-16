@@ -1,6 +1,6 @@
 {
   "name": "@mirai-login/mirai-login",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "../main/lib/main.js",
   "scripts": {
     "runel": "cross-env NODE_ENV=development electron ./",

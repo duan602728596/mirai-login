@@ -1,6 +1,6 @@
 {
   "name": "@mirai-login/app",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "mirai的登录器",
   "author": {
     "name": "段昊辰",
