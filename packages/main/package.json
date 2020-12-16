@@ -8,9 +8,9 @@
     "clean": "rimraf ./lib"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
+    "@babel/cli": "^7.12.10",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-terser": "^1.4.0"
+    "gulp-terser": "^2.0.0"
   }
 }
