@@ -8,9 +8,9 @@ import { ToolFilled as IconToolFilled } from '@ant-design/icons';
 import { cloneDeep } from 'lodash';
 import style from './index.sass';
 import useLogin from './useLogin/useLogin';
-import Download from './func/Download';
-import JdkPath from './func/JdkPath';
-import AppDirPath from './func/AppDirPath';
+import Download from './function/Download';
+import JdkPath from './function/JdkPath';
+import AppDirPath from './function/AppDirPath';
 import { queryOptionsList, saveFormDataButNotPushData, deleteOption } from './reducers/reducers';
 import dbConfig from '../../utils/dbInit/dbConfig';
 
