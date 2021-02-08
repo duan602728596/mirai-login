@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw, Router } from 'vue-router';
-import Index from '../pages/index/index';
+import Index from '../pages/Index/index';
 
 const routesConfig: Array<RouteRecordRaw> = [
   { path: '/', name: 'index', component: Index }

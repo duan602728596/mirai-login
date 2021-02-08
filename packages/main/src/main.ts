@@ -26,8 +26,8 @@ function createWindow(): void {
 
   win.loadFile(
     isDevelopment
-      ? path.join(__dirname, '../../mirai-login/dist/index.html')
-      : path.join(__dirname, '../../dist/index.html')
+      ? path.join(__dirname, '../../mirai-login/dist/Index.html')
+      : path.join(__dirname, '../../dist/Index.html')
   );
 
   // 去掉顶层菜单
