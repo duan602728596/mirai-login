@@ -17,7 +17,7 @@ interface FormValue {
 interface SetupReturn {
   visible: Ref<boolean>;
   formValue: UnwrapRef<FormValue>;
-  handleOpenAppDirConfigurationClick: (event: MouseEvent) => void;
+  handleOpenAppDirConfigurationClick(event: MouseEvent): void;
 }
 
 function setup(): SetupReturn {
