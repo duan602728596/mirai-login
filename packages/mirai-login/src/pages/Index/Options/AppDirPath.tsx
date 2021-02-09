@@ -22,6 +22,7 @@ interface SetupReturn {
   handleSetAppDirConfigurationClick(event: MouseEvent): void;
 }
 
+/* 配置软件目录 */
 function setup(): SetupReturn {
   const visible: Ref<boolean> = ref(false); // 弹出层的显示隐藏
   const formValue: UnwrapRef<FormValue> = reactive({ // 表单的值
@@ -45,7 +46,7 @@ function setup(): SetupReturn {
     resetFields();
   }
 
-  // 选择jdk文件的位置
+  // 选择软件目录的位置
   async function handleSelectAppDirClick(event: MouseEvent): Promise<void> {
     const result: OpenDialogReturnValue = await remote.dialog.showOpenDialog({
       properties: ['openDirectory']
@@ -56,7 +57,7 @@ function setup(): SetupReturn {
     formValue.appDir = result.filePaths[0];
   }
 
-  // 确认jdk文件的位置
+  // 确认软件目录的位置
   function handleSetAppDirConfigurationClick(event: MouseEvent): void {
     if (formValue.appDir && !/^\s*$/.test(formValue.appDir)) {
       localStorage.setItem('APP_DIR', formValue.appDir);
@@ -79,7 +80,6 @@ function setup(): SetupReturn {
   };
 }
 
-/* 配置软件目录 */
 export default defineComponent<{}, SetupReturn>({
   setup,
   render(): RendererElement {

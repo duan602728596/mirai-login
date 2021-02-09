@@ -1,6 +1,7 @@
 import { defineComponent, RendererElement } from 'vue';
 import { Space } from 'ant-design-vue';
 import AppDirPath from './Options/AppDirPath';
+import JdkPath from './Options/JdkPath';
 import style from './index.sass';
 
 export default defineComponent({
@@ -9,6 +10,7 @@ export default defineComponent({
       <div class={ style.content }>
         <Space>
           <AppDirPath />
+          <JdkPath />
         </Space>
       </div>
     );
