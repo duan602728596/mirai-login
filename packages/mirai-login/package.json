@@ -13,6 +13,7 @@
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.1",
     "ant-design-vue": "^2.0.0",
+    "classnames": "^2.2.6",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
     "got": "^10.7.0",
@@ -27,7 +28,6 @@
     "@vue/compiler-sfc": "^3.0.5",
     "babel-plugin-import": "^1.13.3",
     "ts-loader": "^8.0.15",
-    "vue-loader": "^16.1.2",
-    "vue-template-compiler": "^2.6.12"
+    "vue-loader": "^16.1.2"
   }
 }
