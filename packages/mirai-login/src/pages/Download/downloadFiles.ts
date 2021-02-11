@@ -41,25 +41,35 @@ async function download(deleteOldFiles: boolean): Promise<void> {
   const res: Array<MiraiDownloadInfoItem> = process.env.NODE_ENV === 'development'
     ? require('../../../../../mirai.json').download
     : await requestMiraiDownloadInfo();
+  const downloadFile: string[] = []; // 下载的列表
 
   for (const item of res) {
     const { base }: ParsedPath = path.parse(item.url);
     const file: string = path.join(content, base);
 
-    await requestFileDownload(item.url, file, function(e: ProgressEventData): void {
-      commit({
-        type: 'download/setDownloadProgress',
-        payload: Object.assign(item, {
-          percent: e.percent * 100,
-          base
-        })
+    downloadFile.push(file);
+
+    if (!fs.existsSync(file)) {
+      await requestFileDownload(item.url, file, function(e: ProgressEventData): void {
+        commit({
+          type: 'download/setDownloadProgress',
+          payload: Object.assign(item, {
+            percent: e.percent * 100,
+            base
+          })
+        });
       });
-    });
+    }
   }
 
+  // 删除旧的文件
   if (deleteOldFiles && jar.length) {
     for (const item of jar) {
-      await fse.remove(item);
+      const file: string = path.join(content, item);
+
+      if (!downloadFile.includes(file)) {
+        await fse.remove(item);
+      }
     }
   }
 
