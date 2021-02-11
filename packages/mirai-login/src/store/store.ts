@@ -1,7 +1,7 @@
 import Vuex, { Store } from 'vuex';
 import downloadModule from '../pages/Download/modules/download';
 
-let store: Store<any>;
+export let store: Store<any>;
 
 /* 创建store */
 export function storeFactory(initialState: any = {}): Store<any> {
