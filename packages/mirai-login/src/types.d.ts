@@ -1,3 +1,5 @@
+import type { ChildProcessWithoutNullStreams } from 'child_process';
+
 /* vuex action */
 export interface PayloadAction<T = any> {
   type: string;
@@ -10,3 +12,11 @@ export interface ProgressEventData {
   transferred: number;
   total: number;
 }
+
+/* mirai child */
+export interface MiraiChildProcess {
+  event: Event;
+  child: ChildProcessWithoutNullStreams;
+}
+
+export type MiraiChild = MiraiChildProcess | undefined;

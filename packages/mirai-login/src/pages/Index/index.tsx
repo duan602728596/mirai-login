@@ -1,14 +1,15 @@
 import { defineComponent, RendererElement } from 'vue';
-import { Space, Button } from 'ant-design-vue';
+import { Space, Button, Divider } from 'ant-design-vue';
+import { QqOutlined as IconQqOutlined } from '@ant-design/icons-vue';
 import AppDirPath from './Options/AppDirPath';
 import JdkPath from './Options/JdkPath';
-import style from './index.sass';
+import Content from '../../components/Content/Content';
 
 /* 首页 */
 export default defineComponent({
   render(): RendererElement {
     return (
-      <div class={ style.content }>
+      <Content>
         <Space>
           <AppDirPath />
           <JdkPath />
@@ -16,7 +17,11 @@ export default defineComponent({
             <Button>下载mirai</Button>
           </router-link>
         </Space>
-      </div>
+        <Divider />
+        <router-link to="/Login">
+          <Button type="primary" icon={ <IconQqOutlined /> }>登陆</Button>
+        </router-link>
+      </Content>
     );
   }
 });

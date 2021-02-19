@@ -20,8 +20,13 @@ const module: Module<DownloadInitialState, DownloadGetters> = {
     downloadProgress: [] // 下载进度
   },
   getters: {
-    getStep: (state: DownloadInitialState) => (): StepStatus => state.step,
-    getDownloadProgress: (state: DownloadInitialState) => (): Array<DownloadProgressItem> => state.downloadProgress
+    getStep(state: DownloadInitialState): () => StepStatus {
+      return (): StepStatus => state.step;
+    },
+    getDownloadProgress(state: DownloadInitialState): () => Array<DownloadProgressItem> {
+      return (): Array<DownloadProgressItem> => state.downloadProgress;
+    }
+
   },
   mutations: {
     // 设置下载状态

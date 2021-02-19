@@ -4,6 +4,7 @@ import { Button, Divider, Modal, Alert, Progress } from 'ant-design-vue';
 import { CloudDownloadOutlined as IconCloudDownloadOutlined } from '@ant-design/icons-vue';
 import style from './index.sass';
 import downloadFiles from './downloadFiles';
+import Content from '../../components/Content/Content';
 import type { StepStatus, DownloadProgressItem } from './types';
 
 interface SetupReturn {
@@ -72,7 +73,7 @@ export default defineComponent({
 
     return (
       <Fragment>
-        <div class={ style.content }>
+        <Content>
           <div>
             <router-link to="/">
               <Button type="danger">返回</Button>
@@ -91,7 +92,7 @@ export default defineComponent({
             { this.step === 2 ? <Alert class={ style.marginBottom } type="success" message="mirai相关文件下载完毕。" /> : null }
             <ul class={ style.downloadList }>{ this.downloadProgressRender(this.downloadProgress) }</ul>
           </div>
-        </div>
+        </Content>
         <Modal title="下载mirai"
           visible={ this.visible }
           width={ 450 }

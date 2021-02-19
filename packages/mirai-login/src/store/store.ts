@@ -1,5 +1,6 @@
 import Vuex, { Store } from 'vuex';
 import downloadModule from '../pages/Download/modules/download';
+import loginModule from '../pages/Login/modules/login';
 
 export let store: Store<any>;
 
@@ -9,7 +10,8 @@ export function storeFactory(initialState: any = {}): Store<any> {
     store = new Vuex.Store<any>({
       state: initialState,
       modules: Object.assign({},
-        downloadModule
+        downloadModule,
+        loginModule
       )
     });
   }
