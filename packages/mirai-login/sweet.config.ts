@@ -1,5 +1,13 @@
 import * as path from 'path';
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
+const analyzer: boolean = process.env.ANALYZER === 'true';
+
+/**
+ * 模块使用node的commonjs的方式引入
+ * @param { Array<string> } node: node模块名称
+ */
 function nodeExternals(node: Array<string>): { [k: string]: string } {
   const result: { [k: string]: string } = {};
 
@@ -52,7 +60,8 @@ export default function(info: object): { [key: string]: any } {
     },
     sass: {
       include: /src/
-    }
+    },
+    plugins: [new AntdDayjsWebpackPlugin({ preset: 'ant-design-vue' })].concat(analyzer ? [new BundleAnalyzerPlugin()] : [])
   };
 
   return config;

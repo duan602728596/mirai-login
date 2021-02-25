@@ -2,11 +2,14 @@ import { Fragment, defineComponent, ref, reactive, toRaw, computed, Ref, UnwrapR
 import { useStore, Store } from 'vuex';
 import { Button, Modal, Form, Input, Checkbox, message } from 'ant-design-vue';
 import { useForm } from '@ant-design-vue/use';
+import * as dayjs from 'dayjs';
+import IndexedDB from 'indexeddb-tools';
 import style from './index.sass';
 import Content from '../../components/Content/Content';
 import { qqLogin } from './login';
+import dbConfig from '../../utils/dbInit/dbConfig';
 import type { MiraiChild } from '../../types';
-import type { FormValue } from './types';
+import type { FormValue, LoginInfo } from './types';
 
 interface SetupReturn {
   visible: Ref<boolean>;
@@ -58,7 +61,35 @@ function setup(): SetupReturn {
 
       const formValueRaw: FormValue = toRaw(formValue);
 
-      await qqLogin(formValueRaw);
+      await qqLogin(formValueRaw, function(): void {
+        // 添加到数据库
+        function handleDbOpenSuccess(event: IDBVersionChangeEvent): void {
+          const store: any = this.getObjectStore(dbConfig.objectStore[0].name, true);
+          const data: LoginInfo = {
+            qqNumber: formValue.username,
+            time: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+            value: { password: formValue.password }
+          };
+
+          store.put({
+            data: {
+              qqNumber: formValue.username,
+              time: dayjs().format('YYYY-MM-DD HH:mm:ss'),
+              value: { password: formValue.password }
+            }
+          });
+          store.commit({
+            type: 'login/setAddLoginInfoList',
+            payload: data
+          });
+        }
+
+        if (formValueRaw.rememberPwd) {
+          IndexedDB(dbConfig.name, dbConfig.version, {
+            success: handleDbOpenSuccess
+          });
+        }
+      });
     } catch (err) {
       console.error(err);
       message.error(err.errorFields[0].errors[0]);
