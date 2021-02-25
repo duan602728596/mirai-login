@@ -13,13 +13,7 @@ const globP: (pattern: string, options?: IOptions) => Promise<Array<string>> = p
 
 // 获取mirai的ChildProcess
 export async function getMiraiChildProcess(): Promise<MiraiChildProcess> {
-  const { getters, commit }: Store<any> = store;
-  const miraiChild: MiraiChildProcess = getters['login/getMiraiChild'];
-
-  if (miraiChild) {
-    return miraiChild;
-  }
-
+  const { commit }: Store<any> = store;
   const content: string = getContent();
   const jar: Array<string> = await globP('**/*.jar', { cwd: content }); // 查找jar包
   let jarEntryName: string = 'net.mamoe.mirai.console.terminal.MiraiConsoleTerminalLoader'; // 入口
@@ -42,7 +36,7 @@ export async function getMiraiChildProcess(): Promise<MiraiChildProcess> {
   child.stdout.on('data', function(data: Buffer): void {
     const text: string = data.toString();
 
-    event['child'] = text;
+    event['data'] = text;
     document.dispatchEvent(event);
     console.log(text);
   });
@@ -82,15 +76,15 @@ export async function getMiraiChildProcess(): Promise<MiraiChildProcess> {
 export function qqLogin(formValue: FormValue, successCallback?: Function): Promise<void> {
   return new Promise(async (resolve: Function, reject: Function): Promise<void> => {
     try {
-      const { getters, commit }: Store<any> = store;
-      const miraiChild: MiraiChild = getters['login/getMiraiChild'];
-      const child: MiraiChildProcess = miraiChild ?? (await getMiraiChildProcess());
+      const { getters }: Store<any> = store;
+      const miraiChild: MiraiChild = getters['login/getMiraiChild']();
+      const child: MiraiChildProcess = miraiChild ?? await getMiraiChildProcess();
       let isLogin: boolean = miraiChild ? true : false; // 判断是否启动
 
       const handleStdout: (event: Event) => void = function(event: Event): void {
         const text: string = event['data'];
 
-        if (/Login successful/i.test(text) && text.includes(formValue.username!)) {
+        if (/Login successful/i.test(text) && text.includes(formValue.username)) {
           // 登陆成功
           successCallback?.();
           document.removeEventListener(child.event.type, handleStdout, false);

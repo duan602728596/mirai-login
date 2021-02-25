@@ -1,30 +1,40 @@
-import { Fragment, defineComponent, ref, reactive, Ref, UnwrapRef, RendererElement } from 'vue';
-import { Button, Modal, Form, Input, Checkbox } from 'ant-design-vue';
+import { Fragment, defineComponent, ref, reactive, toRaw, computed, Ref, UnwrapRef, ComputedRef, RendererElement } from 'vue';
+import { useStore, Store } from 'vuex';
+import { Button, Modal, Form, Input, Checkbox, message } from 'ant-design-vue';
 import { useForm } from '@ant-design-vue/use';
 import style from './index.sass';
 import Content from '../../components/Content/Content';
+import { qqLogin } from './login';
+import type { MiraiChild } from '../../types';
 import type { FormValue } from './types';
 
 interface SetupReturn {
   visible: Ref<boolean>;
   formValue: UnwrapRef<FormValue>;
   formRules: UnwrapRef<object>;
+  miraiChild: ComputedRef<MiraiChild>;
   handleOpenLoginModalClick(event: MouseEvent): void;
   handleCloseLoginModalClick(event: MouseEvent): void;
   afterClose(): void;
+  handleLoginSubmitClick(event: MouseEvent): Promise<void>;
+  handleKillChildClick(event: MouseEvent): void;
 }
 
 /* 账号登陆 */
 function setup(): SetupReturn {
+  const store: Store<any> = useStore();
   const visible: Ref<boolean> = ref(false); // 弹出层的显示隐藏
-  const formValue: UnwrapRef<FormValue> = reactive({}); // 表单的值
+  const formValue: UnwrapRef<FormValue> = reactive({
+    username: '',
+    password: ''
+  }); // 表单的值
 
   // 表单验证
   const formRules: UnwrapRef<object> = reactive({
     username: [{ required: true, whitespace: true, message: '必须填写用户名' }],
     password: [{ required: true, whitespace: true, message: '必须填写密码' }]
   });
-  const { resetFields }: any = useForm(formValue, formRules);
+  const { resetFields, validate }: any = useForm(formValue, formRules);
 
   // 打开登陆窗口
   function handleOpenLoginModalClick(event: MouseEvent): void {
@@ -41,13 +51,37 @@ function setup(): SetupReturn {
     resetFields();
   }
 
+  // 登陆
+  async function handleLoginSubmitClick(event: MouseEvent): Promise<void> {
+    try {
+      await validate();
+
+      const formValueRaw: FormValue = toRaw(formValue);
+
+      await qqLogin(formValueRaw);
+    } catch (err) {
+      console.error(err);
+      message.error(err.errorFields[0].errors[0]);
+    }
+  }
+
+  // 关闭进程
+  function handleKillChildClick(event: MouseEvent): void {
+    const miraiChild: MiraiChild = store.getters['login/getMiraiChild']();
+
+    miraiChild?.child.kill();
+  }
+
   return {
     visible,
     formValue,
     formRules,
+    miraiChild: computed(store.getters['login/getMiraiChild']),
     handleOpenLoginModalClick,
     handleCloseLoginModalClick,
-    afterClose
+    afterClose,
+    handleLoginSubmitClick,
+    handleKillChildClick
   };
 }
 
@@ -64,6 +98,11 @@ export default defineComponent<{}, SetupReturn>({
             <Button.Group class={ style.marginLeft }>
               <Button type="primary" onClick={ this.handleOpenLoginModalClick }>账号登陆</Button>
             </Button.Group>
+            {
+              this.miraiChild
+                ? <Button type="danger" onClick={ this.handleKillChildClick }>关闭进程</Button>
+                : <Button>一键登陆</Button>
+            }
           </header>
         </Content>
         <Modal visible={ this.visible }
@@ -73,6 +112,7 @@ export default defineComponent<{}, SetupReturn>({
           centered={ true }
           maskClosable={ false }
           afterClose={ this.afterClose }
+          onOk={ this.handleLoginSubmitClick }
           onCancel={ this.handleCloseLoginModalClick }
         >
           <Form model={ this.formValue } rules={ this.formRules } labelCol={{ span: 4 }} wrapperCol={{ span: 20 }}>
@@ -80,7 +120,7 @@ export default defineComponent<{}, SetupReturn>({
               <Input v-model={ [this.formValue.username, 'value'] } />
             </Form.Item>
             <Form.Item name="password" label="密码">
-              <Input v-model={ [this.formValue.password, 'value'] } />
+              <Input.Password v-model={ [this.formValue.password, 'value'] } />
             </Form.Item>
             <Form.Item name="rememberPwd" label="记住密码">
               <Checkbox v-model={ [this.formValue.rememberPwd, 'checked'] } />
