@@ -7,6 +7,7 @@ import { message } from 'ant-design-vue';
 import { store } from '../../store/store';
 import { getContent, getJavaPath, getMirai } from '../../utils/utils';
 import type { MiraiChild, MiraiChildProcess } from '../../types';
+import type { FormValue } from './types';
 
 const globP: (pattern: string, options?: IOptions) => Promise<Array<string>> = promisify(glob);
 
@@ -73,6 +74,58 @@ export async function getMiraiChildProcess(): Promise<MiraiChildProcess> {
   return data;
 }
 
-export function qqLogin(): void {
-  //
+/**
+ * 账号登陆
+ * @param { FormValue } formValue: 账号信息
+ * @param { Function } successCallback: 执行成功后的回调函数
+ */
+export function qqLogin(formValue: FormValue, successCallback?: Function): Promise<void> {
+  return new Promise(async (resolve: Function, reject: Function): Promise<void> => {
+    try {
+      const { getters, commit }: Store<any> = store;
+      const miraiChild: MiraiChild = getters['login/getMiraiChild'];
+      const child: MiraiChildProcess = miraiChild ?? (await getMiraiChildProcess());
+      let isLogin: boolean = miraiChild ? true : false; // 判断是否启动
+
+      const handleStdout: (event: Event) => void = function(event: Event): void {
+        const text: string = event['data'];
+
+        if (/Login successful/i.test(text) && text.includes(formValue.username!)) {
+          // 登陆成功
+          successCallback?.();
+          document.removeEventListener(child.event.type, handleStdout, false);
+          message.success(`[${ formValue.username }] 登陆成功！`);
+          resolve();
+        } else if (/UseLogin failed/i.test(text)) {
+          // 登陆失败
+          const error: Array<string> = text.match(/Error\(.*\)/i)!;
+          const errText: Array<string> = error[0].replace('Error\(', '')
+            .replace(/\)/, '')
+            .split(/\s*,\s*/);
+          const msg: Array<string> = errText.filter((o: string): boolean => /message/.test(o));
+
+          document.removeEventListener(child.event.type, handleStdout, false);
+          message.error(`[${ formValue.username }]${ msg[0] }`);
+          resolve();
+        } else if (/^\>/.test(text)) {
+          // 首次启动时需要监听启动完毕后才能登陆
+          if (isLogin === false) {
+            isLogin = true;
+            child.child.stdin.write(`login ${ formValue.username } ${ formValue.password } \n`);
+          }
+        }
+      };
+
+      document.addEventListener(child.event.type, handleStdout, false);
+
+      // 进程存在时直接写入命令
+      if (miraiChild) {
+        child.child.stdin.write(`login ${ formValue.username } ${ formValue.password } \n`);
+      }
+    } catch (err) {
+      console.error(err);
+      resolve();
+      message.error('登陆失败！');
+    }
+  });
 }

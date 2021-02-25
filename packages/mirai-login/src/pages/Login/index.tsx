@@ -3,12 +3,7 @@ import { Button, Modal, Form, Input, Checkbox } from 'ant-design-vue';
 import { useForm } from '@ant-design-vue/use';
 import style from './index.sass';
 import Content from '../../components/Content/Content';
-
-interface FormValue {
-  username?: string;
-  password?: string;
-  rememberPwd?: boolean;
-}
+import type { FormValue } from './types';
 
 interface SetupReturn {
   visible: Ref<boolean>;
